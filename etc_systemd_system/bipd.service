@@ -3,6 +3,9 @@ Description=BIP Server Daemon
 
 [Service]
 Type=simple
+# Legacy configuration from the original environment:
+# ExecStart=/home/sdr/work/young/bipd/bipd.exe
+# WorkingDirectory=/home/sdr/work/young/bipd
 ExecStart=/home/quectel/work/bipd/bipd.exe
 WorkingDirectory=/home/quectel/work/bipd
 # --------- Restart Section Define
