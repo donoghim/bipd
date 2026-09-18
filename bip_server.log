@@ -1,0 +1,69 @@
+BETA052601
+May 26 21:27:04 sdr bipLog[101221]: ------ Connect client 5 2
+May 26 21:27:05 sdr bipLog[101221]: recv hello 4
+May 26 21:27:05 sdr bipLog[101221]: send welcome 4
+May 26 21:27:05 sdr bipLog[101221]: recv test1 4
+May 26 21:27:05 sdr bipLog[101221]: send test1 254
+May 26 21:27:06 sdr bipLog[101221]: recv test2 4
+May 26 21:27:06 sdr bipLog[101221]: send test2 504
+May 26 21:27:08 sdr bipLog[101221]: recv test3 4
+May 26 21:27:08 sdr bipLog[101221]: send test3 754
+May 26 21:27:10 sdr bipLog[101221]: recv test4 4
+May 26 21:27:10 sdr bipLog[101221]: send test4 1004
+May 26 21:27:12 sdr bipLog[101221]: recv req change imsi 4
+May 26 21:27:12 sdr bipLog[101221]: send imsi 19
+May 26 21:27:13 sdr bipLog[101221]: recv complete imsi 4
+May 26 21:27:13 sdr bipLog[101221]: send go ahead 4
+May 26 21:27:14 sdr bipLog[101221]: recv req change msisdn 4
+May 26 21:27:14 sdr bipLog[101221]: send msisdn 38
+May 26 21:27:15 sdr bipLog[101221]: recv complete msisdn 4
+May 26 21:27:15 sdr bipLog[101221]: send finish 4
+May 26 21:27:15 sdr bipLog[101221]: sleep 1 s
+May 26 21:27:16 sdr bipLog[101221]: ------ Disconnect client 5 2
+
+BETA052602
+May 26 19:51:10 sdr bipLog[101221]: ------ Connect client 1 2
+May 26 19:51:11 sdr bipLog[101221]: recv hello 4
+May 26 19:51:11 sdr bipLog[101221]: send welcome 4
+May 26 19:51:12 sdr bipLog[101221]: recv test1 4
+May 26 19:51:12 sdr bipLog[101221]: send test1 254
+May 26 19:51:13 sdr bipLog[101221]: recv test2 4
+May 26 19:51:13 sdr bipLog[101221]: send test2 504
+May 26 19:51:19 sdr bipLog[101221]: recv test3 4
+May 26 19:51:19 sdr bipLog[101221]: send test3 754
+May 26 19:51:34 sdr bipLog[101221]: recv test4 4
+May 26 19:51:34 sdr bipLog[101221]: send test4 1004
+May 26 19:51:35 sdr bipLog[101221]: recv req change imsi 4
+May 26 19:51:35 sdr bipLog[101221]: send imsi 19
+May 26 19:51:36 sdr bipLog[101221]: recv complete imsi 4
+May 26 19:51:36 sdr bipLog[101221]: send go ahead 4
+May 26 19:51:36 sdr bipLog[101221]: recv req change msisdn 4
+May 26 19:51:36 sdr bipLog[101221]: send msisdn 38
+May 26 19:51:37 sdr bipLog[101221]: recv complete msisdn 4
+May 26 19:51:37 sdr bipLog[101221]: send finish 4
+May 26 19:51:37 sdr bipLog[101221]: sleep 1 s
+May 26 19:51:38 sdr bipLog[101221]: ------ Disconnect client 1 2
+
+BETA052605
+May 26 20:31:25 sdr bipLog[101221]: ------ Connect client 3 2
+May 26 20:31:27 sdr bipLog[101221]: recv hello 4
+May 26 20:31:27 sdr bipLog[101221]: send welcome 4
+May 26 20:31:29 sdr bipLog[101221]: recv test1 4
+May 26 20:31:29 sdr bipLog[101221]: send test1 254
+May 26 20:31:31 sdr bipLog[101221]: recv test2 4
+May 26 20:31:31 sdr bipLog[101221]: send test2 504
+May 26 20:31:33 sdr bipLog[101221]: recv test3 4
+May 26 20:31:33 sdr bipLog[101221]: send test3 754
+May 26 20:31:35 sdr bipLog[101221]: recv test4 4
+May 26 20:31:35 sdr bipLog[101221]: send test4 1004
+May 26 20:31:37 sdr bipLog[101221]: recv req change imsi 4
+May 26 20:31:37 sdr bipLog[101221]: send imsi 19
+May 26 20:31:39 sdr bipLog[101221]: recv complete imsi 4
+May 26 20:31:39 sdr bipLog[101221]: send go ahead 4
+May 26 20:31:40 sdr bipLog[101221]: recv req change msisdn 4
+May 26 20:31:40 sdr bipLog[101221]: send msisdn 38
+May 26 20:31:42 sdr bipLog[101221]: recv complete msisdn 4
+May 26 20:31:42 sdr bipLog[101221]: send finish 4
+May 26 20:31:42 sdr bipLog[101221]: sleep 1 s
+May 26 20:31:43 sdr bipLog[101221]: ------ Disconnect client 3 2
+

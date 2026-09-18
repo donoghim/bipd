@@ -1,0 +1,11 @@
+{
+  "imsi": "450061033330008",
+  "imsi_lgu": "450061033330008",
+  "imsi_skt": "450051033330008",
+  "msisdn_alphaId": "abcdefgh",
+  "msisdn_bcdLen": 7,
+  "msisdn_dialNum": "821033330008",
+  "accpt_mode": 2,
+  "port": 22001,
+  "finish_mode": 2
+}

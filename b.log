@@ -1,0 +1,82 @@
+// young: num:47 len:95
+//   16: Handshake protocol
+//   03 01: TLS version 1.0
+//   00 51: 81 bytes legth
+//   02: Server Hello (Handshake type)
+//   00 00 04: 77 bytes
+0000   16 030100 51 02 00 00 4d 03 01 77 12 d2 ae e1
+0010   25 84 29 a4 eb 99 42 09 cd 50 cb 6f 6c 51 c0 6d
+0020   99 ed b0 46 7d e8 ab a6 61 d6 c1 20 5a 26 df 58
+0030   62 8f 91 d4 01 1a 6a de b3 77 84 e6 67 75 75 83
+0040   0e fe 85 9a 70 68 db 98 5a 5d 83 58 00 8c 00 00
+0050   05 00 01 00 01 01 16 03 01 00 04 0e 00 00 00
+
+// young: num:64 len:378
+0000   17 030100 20 c0 15 54 65 b6 b9 07 79 fa 9d 5e
+0010   df 49 a7 b5 12 ab 47 ee 3d 26 1f 24 cc 54 6d 57
+0020   c4 09 d2 c1 73 17 03 01 01 50 86 5e 46 a7 d8 de
+0030   cb c0 36 89 22 2e 7d 89 eb b4 bf 0a 26 6e 5f e9
+0040   cc 09 3e 4f 39 38 57 82 d4 72 b9 b8 64 f2 37 33
+0050   e1 2d 79 e7 fc 12 17 9b d7 92 17 95 f4 f9 c0 4e
+0060   a6 d5 76 a4 8c 43 b5 75 e7 d8 19 06 c2 2a 09 5f
+0070   3c d6 6b e7 11 da fb bc cf 80 7c f2 80 92 05 28
+0080   4e 06 cb 59 b6 85 29 e5 c0 9f 4c d5 8b 56 3c 11
+0090   84 1a 12 71 7f a1 e9 a0 e1 b3 38 c8 f2 3e 4a 57
+00a0   1d a0 65 59 b6 f0 15 e4 80 6e 68 69 1d 2d 1f da
+00b0   66 78 b2 5e a7 b8 8c 5f b3 27 3b 86 e0 d9 11 59
+00c0   c3 81 34 7e 09 7f 46 77 ab 9f 5e 04 1f 51 d1 09
+00d0   31 52 8c 67 83 35 b6 7d a2 02 3c 93 dc bd 8f d8
+00e0   31 b4 6b a1 17 9f 33 2c 8b c9 38 48 68 83 76 6f
+00f0   60 7e 0d 62 81 5e 2d a0 7b 24 12 54 68 b5 c9 33
+0100   a3 cc 17 6a 12 99 3a e0 23 4d 64 70 64 bf f3 14
+0110   75 19 80 c1 7a b0 b9 38 7d 21 1e 72 12 29 a8 4f
+0120   e7 0e 54 06 20 70 07 b3 ac 46 68 e1 dc 27 35 1e
+0130   f3 ac 22 06 40 22 b0 54 94 f2 b6 86 63 39 ae 85
+0140   25 bf 94 7d d2 50 62 19 4b 82 9d 5a 83 db c8 a3
+0150   7c 6a 4a 3a 55 f7 11 dd 02 89 7c 29 7a dc e7 39
+0160   ba f7 d5 f1 9d b7 eb 85 cb 4f 15 0d cf ef db ba
+0170   da 97 ff 2a fd 6b a7 ec c0 46
+
+// young: num:67 len:170
+0000   17 030100 20 52 e9 aa aa 12 a6 aa e7 33 48 d4
+0010   c3 06 fd cb a7 87 95 fe b3 a5 82 47 40 42 1a 18
+0020   4a 16 6f f0 51 17 03 01 00 80 2e 8f 22 ab 89 40
+0030   ca a2 a7 fa c7 ed 79 83 e5 a2 a5 62 4b b9 c3 7d
+0040   e3 40 d6 e3 f7 36 29 9d 8a 32 1a bd 13 55 80 76
+0050   2b ed e7 29 29 13 9b 84 e6 0c e8 6d 77 76 3e 66
+0060   06 e0 88 15 fb 72 9f 11 b2 93 ba a1 7a 8d 74 fc
+0070   c6 fc d6 bc f9 4d 04 bd 07 5d ff 27 2b ab 1e d9
+0080   9f f0 8f 5e 63 a2 c0 7d f1 bf 79 d5 d6 96 1a 54
+0090   f8 8f 43 1b c9 ed ab d0 95 ba 56 1c 1c 8e 79 f1
+00a0   97 ca 33 1f aa ad 18 59 1a ba
+
+// young: num:80 len:266
+0000   17 030100 20 41 c5 c9 31 79 0e 4c c8 8f f1 db
+0010   be 07 f9 3b 7e d5 cb 90 1d f7 eb aa cb b2 f7 35
+0020   5d 6b 38 4e 80 17 03 01 00 e0 6c 2e 1d 14 d6 40
+0030   65 95 47 f0 fb a0 7f 22 27 ea d8 fa ef c4 2e 29
+0040   af 6c 3b 81 9a b1 71 46 27 f5 25 18 12 c5 74 83
+0050   de 0f 5a a6 df 03 2c b1 6a ce 0c e6 8f 99 3a 48
+0060   61 3d 68 f3 95 fe 46 48 3f df 7a 43 02 7d f4 0f
+0070   0b 98 c9 5f 6f 55 f0 b3 a5 66 ea 5e 0f 4a 07 7d
+0080   00 6b cf 4d f6 df ed 60 d3 b4 7c d7 5d 5c 87 d8
+0090   6e c0 e7 a6 a5 8a f2 23 d0 c2 6e 0a bb ad 81 27
+00a0   be c9 3b eb f2 cb ff 7b 59 07 3c bd 0f 33 55 9c
+00b0   5d 71 4b 3c 52 42 7e 7f 90 51 0d 38 e3 5d 45 27
+00c0   ae f4 97 4a f5 9e 0e 76 37 a3 53 89 f6 a2 36 ae
+00d0   70 ff fc 6d e2 df 10 f1 d4 20 7b bc a5 ad 17 18
+00e0   93 f7 15 9a b7 ab 28 ef 74 9b 0a b4 42 41 f3 71
+00f0   85 34 d9 e9 0b 2f ad 71 c4 f7 3d 63 71 17 2c 8f
+0100   5a 3a dc 79 db fd bf 5c 2a 14
+
+// young: num:53 len:59
+0000   14 030100 01 01 16 03 01 00 30 a6 04 b8 84 e4
+0010   78 e6 76 18 76 e2 21 ee 5e f9 8f 32 2b bc 87 7b
+0020   07 5d e2 85 8a 24 a7 fa e7 27 d6 08 c6 4e ed b7
+0030   cb fa 82 20 23 87 8d 92 6f ae ac
+
+// young: num:89 len:37
+0000   15 030100 20 6d af 23 1d 4d a5 5a c9 6a 56 ee
+0010   c0 86 24 9a cc e2 c9 10 9f 47 6f 1c 42 b1 87 b8
+0020   db 2e 54 ee c7
+
