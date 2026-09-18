@@ -1,0 +1,18 @@
+[Unit]
+Description=BIP Server Daemon
+
+[Service]
+Type=simple
+ExecStart=/home/quectel/work/bipd/bipd.exe
+WorkingDirectory=/home/quectel/work/bipd
+# --------- Restart Section Define
+# ---- Restart when there is on-failure abnormal. Error too quick restart
+Restart=on-failure
+# ---- Restart Alaways. OK in start
+# Restart=alaways
+# ---- Wait 5s before Restart
+# RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target
+Alias=bipd.service

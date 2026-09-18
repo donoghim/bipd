@@ -42,6 +42,7 @@ ldd bipd.exe
 | `2_check_bipd_state.sh` | 프로세스와 포트 상태 확인 |
 | `3_check_bipd_log.sh` | systemd journal을 실시간으로 확인 |
 | `4_check_bipd_log.sh` | systemd journal의 최근 로그 확인 |
+| `etc_systemd_system/bipd.service` | `bipd.exe`를 실행하는 systemd 유닛 파일 |
 | `bipd_tx1.c` | 현재 기본으로 빌드되는 단일 TX 테스트 프로그램 |
 | `bipd_tx2.c` | 연속 TX 테스트용 대체 구현 |
 | `bipd_tls.c` | 별도 TLS 구현 |
@@ -51,9 +52,9 @@ ldd bipd.exe
 | `bip_server.exe` | BIP 서버 테스트 실행 파일 |
 | `bip_client.exe` | BIP 클라이언트 테스트 실행 파일 |
 
-저장소에는 systemd 서비스 파일 자체가 포함되어 있지 않습니다. `1_run_bipd.sh`의
-첫 주석에 표시된 것처럼 서비스 파일은 운영체제의
-`/etc/systemd/system/bipd.service`에 별도로 설치되어 있어야 합니다.
+`etc_systemd_system/bipd.service`는 systemd 서비스 파일의 저장소 사본입니다.
+실제 systemd가 읽는 위치는 `/etc/systemd/system/bipd.service`이므로, 파일을
+그 위치에 설치한 뒤 `daemon-reload`해야 합니다.
 
 ## 필요한 환경
 
@@ -136,46 +137,60 @@ ldd bipd.exe
 
 ## systemd 서비스 설치
 
-`1_run_bipd.sh`는 서비스 파일을 생성하지 않습니다. 다음 예시를 실제 경로에 맞게
-작성하여 `/etc/systemd/system/bipd.service`로 설치합니다.
+저장소에는 실제 서비스 파일이
+`etc_systemd_system/bipd.service`로 포함되어 있습니다. 현재 파일은 이
+workspace 경로를 사용하며, 내용은 다음과 같습니다.
 
 ```ini
 [Unit]
-Description=BIP test daemon
-After=network-online.target
-Wants=network-online.target
+Description=BIP Server Daemon
 
 [Service]
 Type=simple
-WorkingDirectory=/opt/bipd
-ExecStart=/opt/bipd/bipd.exe
+ExecStart=/home/quectel/work/bipd/bipd.exe
+WorkingDirectory=/home/quectel/work/bipd
 Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
+Alias=bipd.service
 ```
 
-예를 들어 저장소를 `/opt/bipd`에 설치했다면 다음처럼 준비합니다.
+다른 디렉터리에 저장소를 복사했다면 `ExecStart`와 `WorkingDirectory`를 해당
+디렉터리로 수정한 다음 저장소의 서비스 파일을 systemd 위치에 복사합니다.
 
 ```bash
-sudo install -d /opt/bipd
-sudo cp -a . /opt/bipd/
-sudo install -m 0755 bipd.exe /opt/bipd/bipd.exe
-sudo install -m 0644 param.json /opt/bipd/param.json
-sudo install -m 0644 bipd.service /etc/systemd/system/bipd.service
-```
-
-그 다음 systemd를 반영하고 서비스를 시작합니다.
-
-```bash
+sudo install -m 0644 etc_systemd_system/bipd.service \
+  /etc/systemd/system/bipd.service
+sudo chmod +x /home/quectel/work/bipd/bipd.exe
 sudo systemctl daemon-reload
-sudo systemctl enable bipd
-sudo systemctl start bipd
-sudo systemctl status bipd
+sudo systemctl enable bipd.service
+sudo systemctl start bipd.service
+sudo systemctl status bipd.service
 ```
 
-`ExecStart`와 `WorkingDirectory`는 반드시 실제 파일 위치와 일치해야 합니다.
-특히 `WorkingDirectory`가 빠지면 프로그램이 `./param.json`을 찾지 못할 수 있습니다.
+다른 경로에 저장소를 설치했다면 위 명령의 모든
+`/home/quectel/work/bipd`를 그 경로로 바꿉니다. `ExecStart`와
+`WorkingDirectory`는 반드시 같은 실제 프로젝트 디렉터리를 가리켜야 합니다.
+
+서비스 파일 설치 전에 다음 명령으로 경로와 문법을 확인할 수 있습니다.
+
+```bash
+grep -E '^(ExecStart|WorkingDirectory)=' etc_systemd_system/bipd.service
+systemd-analyze verify etc_systemd_system/bipd.service
+```
+
+`WorkingDirectory`가 필요한 이유는 프로그램이 `./param.json`을 상대 경로로
+읽기 때문입니다. 서비스 파일에는 이 항목이 이미 있으므로, 해당 디렉터리에
+`bipd.exe`와 `param.json`이 함께 있어야 합니다.
+
+서비스를 중지하거나 설정을 다시 반영할 때는 다음처럼 실행합니다.
+
+```bash
+sudo systemctl stop bipd.service
+sudo systemctl daemon-reload
+sudo systemctl restart bipd.service
+```
 
 ## `1_run_bipd.sh` 사용법
 
@@ -256,12 +271,13 @@ sudo journalctl -u bipd -n 100 --no-pager
 
 ### `Unit bipd.service could not be found`
 
-서비스 파일이 설치되지 않았거나 파일명이 다릅니다.
+서비스 파일이 설치되지 않았거나 systemd가 아직 새 파일을 읽지 않은 상태입니다.
 
 ```bash
 ls -l /etc/systemd/system/bipd.service
 sudo systemctl daemon-reload
 sudo systemctl status bipd
+systemctl cat bipd.service
 ```
 
 ### `Failed to execute ... bipd.exe: Permission denied`
@@ -269,8 +285,8 @@ sudo systemctl status bipd
 실행 권한과 파일 형식을 확인합니다.
 
 ```bash
-chmod +x /opt/bipd/bipd.exe
-file /opt/bipd/bipd.exe
+chmod +x /home/quectel/work/bipd/bipd.exe
+file /home/quectel/work/bipd/bipd.exe
 ```
 
 ### `param.json`을 열 수 없음
@@ -279,8 +295,8 @@ file /opt/bipd/bipd.exe
 또한 `ExecStart`를 절대 경로로 사용합니다.
 
 ```ini
-WorkingDirectory=/opt/bipd
-ExecStart=/opt/bipd/bipd.exe
+WorkingDirectory=/home/quectel/work/bipd
+ExecStart=/home/quectel/work/bipd/bipd.exe
 ```
 
 ### TAP 인터페이스 또는 IP 주소 생성 실패
